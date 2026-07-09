@@ -1,0 +1,4 @@
+# Backend dependencies for Notion CMS sync
+# Pin notion-client to 2.5.0 because 2.6+ removed databases.query() in favor of data_sources.query()
+notion-client==2.5.0
+python-dotenv>=1.0

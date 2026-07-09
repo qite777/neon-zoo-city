@@ -1,0 +1,66 @@
+"use client";
+
+import { useState, useRef, useEffect } from "react";
+
+interface ExplorerAvatarProps {
+  src: string;
+  alt: string;
+  name?: string;
+  title?: string;
+}
+
+export function ExplorerAvatar({
+  src,
+  alt,
+  name = "Lilia",
+  title = "City Explorer",
+}: ExplorerAvatarProps) {
+  const [hasError, setHasError] = useState(false);
+  const [isLoaded, setIsLoaded] = useState(false);
+  const isVideo = src.endsWith(".mp4");
+  const videoRef = useRef<HTMLVideoElement>(null);
+
+  useEffect(() => {
+    const video = videoRef.current;
+    if (video) {
+      video.play().catch(() => {
+        // Autoplay might be blocked
+      });
+    }
+  }, []);
+
+  if (hasError) return null;
+
+  return (
+    <div className="relative hidden h-48 w-36 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl md:block md:h-64 md:w-48">
+      {isVideo ? (
+        <video
+          ref={videoRef}
+          src={src}
+          autoPlay
+          muted
+          loop
+          playsInline
+          preload="auto"
+          className={`h-full w-full object-cover object-top transition-opacity duration-500 ${
+            isLoaded ? "opacity-100" : "opacity-0"
+          }`}
+          onError={() => setHasError(true)}
+          onLoadedData={() => setIsLoaded(true)}
+        />
+      ) : (
+        <img
+          src={src}
+          alt={alt}
+          className="h-full w-full object-cover object-top"
+          onError={() => setHasError(true)}
+        />
+      )}
+      <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b12]/60 to-transparent" />
+      <div className="absolute bottom-3 left-3 right-3">
+        <p className="text-xs text-[#8b8d9a]">{title}</p>
+        <p className="text-sm font-bold text-white">{name}</p>
+      </div>
+    </div>
+  );
+}

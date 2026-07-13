@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { districts, getDistrictBySlug, getProjectsByDistrict } from "@/lib/data";
@@ -15,6 +16,35 @@ export async function generateStaticParams() {
 
 interface DistrictPageProps {
   params: Promise<{ slug: string }>;
+}
+
+export async function generateMetadata({
+  params,
+}: DistrictPageProps): Promise<Metadata> {
+  const { slug } = await params;
+  const district = getDistrictBySlug(slug);
+
+  if (!district) {
+    return {};
+  }
+
+  return {
+    title: district.name,
+    description: `${district.description} ${district.tagline}`,
+    openGraph: {
+      title: `${district.name} | Neon Zoo City`,
+      description: district.tagline,
+      images: district.image ? [district.image] : [],
+    },
+    twitter: {
+      title: `${district.name} | Neon Zoo City`,
+      description: district.tagline,
+      images: district.image ? [district.image] : [],
+    },
+    alternates: {
+      canonical: `/district/${slug}`,
+    },
+  };
 }
 
 const districtVideos: Record<string, string> = {

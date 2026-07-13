@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useInView } from "@/hooks/useInView";
 
 interface CityLifeVideoProps {
   src: string;
@@ -18,22 +19,26 @@ export function CityLifeVideo({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref, isInView } = useInView<HTMLElement>({
+    threshold: 0.1,
+    rootMargin: "200px",
+  });
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    if (video && isInView) {
       video.play().catch(() => {
         // Autoplay might be blocked
       });
     }
-  }, []);
+  }, [isInView]);
 
   if (hasError) {
     return null;
   }
 
   return (
-    <section className="relative overflow-hidden py-24">
+    <section ref={ref} className="relative overflow-hidden py-24">
       {/* Video background */}
       <div className="absolute inset-0">
         <video
@@ -43,7 +48,7 @@ export function CityLifeVideo({
           muted
           loop
           playsInline
-          preload="auto"
+          preload={isInView ? "auto" : "metadata"}
           className={`h-full w-full object-cover transition-opacity duration-1000 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}

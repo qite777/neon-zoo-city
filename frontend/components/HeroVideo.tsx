@@ -5,9 +5,10 @@ import { useState, useRef, useEffect } from "react";
 interface HeroVideoProps {
   src: string;
   poster?: string;
+  priority?: boolean;
 }
 
-export function HeroVideo({ src, poster }: HeroVideoProps) {
+export function HeroVideo({ src, poster, priority = true }: HeroVideoProps) {
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
@@ -22,7 +23,17 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
   }, []);
 
   if (hasError) {
-    return null;
+    return (
+      <div className="absolute inset-0 overflow-hidden">
+        {poster && (
+          <div
+            className="absolute inset-0 bg-cover bg-center"
+            style={{ backgroundImage: `url(${poster})` }}
+          />
+        )}
+        <div className="absolute inset-0 bg-[#0a0b12]/80" />
+      </div>
+    );
   }
 
   return (
@@ -35,7 +46,7 @@ export function HeroVideo({ src, poster }: HeroVideoProps) {
         muted
         loop
         playsInline
-        preload="auto"
+        preload={priority ? "auto" : "metadata"}
         className={`h-full w-full object-cover transition-opacity duration-1000 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}

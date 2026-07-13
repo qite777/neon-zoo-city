@@ -44,11 +44,15 @@ export function CharacterGuide({
           <img
             src={district.image}
             alt={district.animalName}
+            loading="lazy"
+            decoding="async"
+            width={240}
+            height={320}
             className="h-64 w-48 object-cover object-top md:h-80 md:w-60"
           />
         ) : (
           <div className="flex h-64 w-48 items-center justify-center md:h-80 md:w-60">
-            <span className="text-6xl">{district.animal}</span>
+            <span className="text-6xl" aria-hidden="true">{district.animal}</span>
           </div>
         )}
 

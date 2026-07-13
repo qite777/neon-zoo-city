@@ -1,3 +1,4 @@
+import type { Metadata } from "next";
 import { districts } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -5,6 +6,25 @@ import { Timeline } from "@/components/Timeline";
 import { CharacterIntro } from "@/components/CharacterIntro";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { AboutAvatarVideo } from "@/components/AboutAvatarVideo";
+
+export const metadata: Metadata = {
+  title: "关于",
+  description:
+    "Lilia — 研学×AI数字产品创作者，在国际教育、AIGC 与城市探索之间记录成长轨迹。",
+  openGraph: {
+    title: "关于 | Neon Zoo City",
+    description:
+      "了解 Neon Zoo City 的建造者：一位研学×AI数字产品创作者的城市档案。",
+  },
+  twitter: {
+    title: "关于 | Neon Zoo City",
+    description:
+      "了解 Neon Zoo City 的建造者：一位研学×AI数字产品创作者的城市档案。",
+  },
+  alternates: {
+    canonical: "/about",
+  },
+};
 
 const timelineEvents = [
   {
@@ -82,7 +102,7 @@ export default function AboutPage() {
               <div className="flex-1">
                 <AnimatedSection delay={100}>
                   <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
-                    About the Explorer
+                    About the Creator
                   </p>
                   <h1 className="mt-3 text-4xl font-bold md:text-6xl">
                     城市探索者 ·{" "}

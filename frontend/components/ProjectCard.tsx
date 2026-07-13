@@ -31,6 +31,7 @@ export function ProjectCard({ project }: ProjectCardProps) {
       <div className="relative aspect-[16/10] overflow-hidden bg-[#0d0e15]">
         <div
           className="absolute inset-0 flex items-center justify-center text-5xl opacity-30 transition-all duration-500 group-hover:scale-110 group-hover:opacity-50"
+          aria-hidden="true"
         >
           {district?.icon || "📁"}
         </div>

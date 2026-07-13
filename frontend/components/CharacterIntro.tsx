@@ -34,10 +34,16 @@ export function CharacterIntro({ district, index }: CharacterIntroProps) {
               <img
                 src={district.image}
                 alt={district.animalName}
+                loading="lazy"
+                decoding="async"
+                width={64}
+                height={64}
                 className="h-full w-full object-cover"
               />
             ) : (
-              <div className="flex h-full w-full items-center justify-center text-3xl"
+              <div
+                className="flex h-full w-full items-center justify-center text-3xl"
+                aria-hidden="true"
               >
                 {district.animal}
               </div>

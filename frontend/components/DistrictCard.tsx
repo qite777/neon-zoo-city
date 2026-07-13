@@ -41,7 +41,10 @@ export function DistrictCard({ district, index }: DistrictCardProps) {
 
       <div className="relative flex items-start justify-between">
         <AnimalAvatar district={district} size="lg" animate={false} />
-        <span className="text-3xl opacity-50 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-80">
+        <span
+          className="text-3xl opacity-50 transition-transform duration-300 group-hover:scale-110 group-hover:opacity-80"
+          aria-hidden="true"
+        >
           {district.icon}
         </span>
       </div>

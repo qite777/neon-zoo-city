@@ -6,7 +6,10 @@ export function Footer() {
       <div className="mx-auto max-w-7xl px-6">
         <div className="flex flex-col items-center justify-between gap-6 md:flex-row">
           <div className="flex items-center gap-3">
-            <span className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#39FF14] to-[#009624] text-lg">
+            <span
+              className="flex h-10 w-10 items-center justify-center rounded-xl bg-gradient-to-br from-[#39FF14] to-[#009624] text-lg"
+              aria-hidden="true"
+            >
               🦥
             </span>
             <div>

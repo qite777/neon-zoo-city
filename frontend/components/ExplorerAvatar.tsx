@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useInView } from "@/hooks/useInView";
 
 interface ExplorerAvatarProps {
   src: string;
@@ -19,20 +20,29 @@ export function ExplorerAvatar({
   const [isLoaded, setIsLoaded] = useState(false);
   const isVideo = src.endsWith(".mp4");
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref, isInView } = useInView<HTMLDivElement>({
+    threshold: 0.1,
+    rootMargin: "200px",
+  });
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    if (video && isInView) {
       video.play().catch(() => {
         // Autoplay might be blocked
       });
     }
-  }, []);
+  }, [isInView]);
 
-  if (hasError) return null;
+  if (hasError) {
+    return null;
+  }
 
   return (
-    <div className="relative hidden h-48 w-36 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl md:block md:h-64 md:w-48">
+    <div
+      ref={ref}
+      className="relative hidden h-48 w-36 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl md:block md:h-64 md:w-48"
+    >
       {isVideo ? (
         <video
           ref={videoRef}
@@ -41,7 +51,7 @@ export function ExplorerAvatar({
           muted
           loop
           playsInline
-          preload="auto"
+          preload={isInView ? "auto" : "metadata"}
           className={`h-full w-full object-cover object-top transition-opacity duration-500 ${
             isLoaded ? "opacity-100" : "opacity-0"
           }`}
@@ -52,6 +62,10 @@ export function ExplorerAvatar({
         <img
           src={src}
           alt={alt}
+          loading="lazy"
+          decoding="async"
+          width={192}
+          height={256}
           className="h-full w-full object-cover object-top"
           onError={() => setHasError(true)}
         />

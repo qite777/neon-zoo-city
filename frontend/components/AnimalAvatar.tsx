@@ -23,9 +23,17 @@ const textSizes = {
   xl: "text-5xl",
 };
 
+const sizePixels = {
+  sm: 40,
+  md: 56,
+  lg: 80,
+  xl: 160,
+};
+
 export function AnimalAvatar({ district, size = "md", animate = false }: AnimalAvatarProps) {
   const [imageError, setImageError] = useState(false);
   const hasImage = district.image && !imageError;
+  const pixelSize = sizePixels[size];
 
   return (
     <div
@@ -37,16 +45,21 @@ export function AnimalAvatar({ district, size = "md", animate = false }: AnimalA
         ${animate ? "animate-float" : ""}
       `}
       style={{ boxShadow: `0 0 30px ${district.color}40` }}
+      aria-label={district.animalName}
     >
       {hasImage ? (
         <img
           src={district.image}
           alt={district.animalName}
+          loading="lazy"
+          decoding="async"
+          width={pixelSize}
+          height={pixelSize}
           className="h-full w-full object-cover"
           onError={() => setImageError(true)}
         />
       ) : (
-        <span className={textSizes[size]}>{district.animal}</span>
+        <span className={textSizes[size]} aria-hidden="true">{district.animal}</span>
       )}
     </div>
   );

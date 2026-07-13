@@ -45,13 +45,17 @@ function DistrictTower({ district, index }: { district: District; index: number 
           <img
             src={district.image}
             alt={district.animalName}
+            loading="lazy"
+            decoding="async"
+            width={56}
+            height={56}
             className="h-full w-full object-cover"
             onError={(e) => {
               (e.target as HTMLImageElement).style.display = "none";
             }}
           />
         ) : (
-          <span className="text-2xl">{district.animal}</span>
+          <span className="text-2xl" aria-hidden="true">{district.animal}</span>
         )}
       </div>
 
@@ -115,7 +119,7 @@ function DistrictTower({ district, index }: { district: District; index: number 
 
 export function CityMap({ districts }: CityMapProps) {
   return (
-    <section className="relative py-24">
+    <section aria-label="城市地图" className="relative py-24">
       <div className="mx-auto max-w-7xl px-6">
         <div className="mb-16 text-center">
           <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
@@ -150,7 +154,7 @@ export function CityMap({ districts }: CityMapProps) {
                 boxShadow: "0 0 50px #D946EF60",
               }}
             >
-              <span className="text-3xl md:text-4xl">🌃</span>
+            <span className="text-3xl md:text-4xl" aria-hidden="true">🌃</span>
               <div className="absolute inset-0 animate-ping rounded-full opacity-20 bg-[#D946EF]" />
             </div>
             <div

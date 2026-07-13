@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useRef, useEffect } from "react";
+import { useInView } from "@/hooks/useInView";
 
 interface CharacterVideoProps {
   src: string;
@@ -18,20 +19,27 @@ export function CharacterVideo({
   const [hasError, setHasError] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
   const videoRef = useRef<HTMLVideoElement>(null);
+  const { ref, isInView } = useInView<HTMLDivElement>({
+    threshold: 0.1,
+    rootMargin: "200px",
+  });
 
   useEffect(() => {
     const video = videoRef.current;
-    if (video) {
+    if (video && isInView) {
       video.playbackRate = 1;
+      video.play().catch(() => {
+        // Autoplay might be blocked
+      });
     }
-  }, []);
+  }, [isInView]);
 
   if (hasError) {
     return null;
   }
 
   return (
-    <div className={`relative ${className}`}>
+    <div ref={ref} className={`relative ${className}`}>
       <video
         ref={videoRef}
         src={src}
@@ -40,7 +48,7 @@ export function CharacterVideo({
         muted
         loop
         playsInline
-        preload="auto"
+        preload={isInView ? "auto" : "metadata"}
         className={`h-full w-full object-contain transition-opacity duration-500 ${
           isLoaded ? "opacity-100" : "opacity-0"
         }`}
@@ -51,6 +59,8 @@ export function CharacterVideo({
         <img
           src={poster}
           alt={alt}
+          loading="lazy"
+          decoding="async"
           className="absolute inset-0 h-full w-full object-contain"
         />
       )}

@@ -7,6 +7,9 @@ import { Footer } from "@/components/Footer";
 import { AnimalAvatar } from "@/components/AnimalAvatar";
 import { CharacterGuide } from "@/components/CharacterGuide";
 import { ExhibitionWall } from "@/components/ExhibitionWall";
+import { Timeline } from "@/components/Timeline";
+import { AnimatedSection } from "@/components/AnimatedSection";
+import { ArchiveContent } from "@/components/ArchiveContent";
 
 export async function generateStaticParams() {
   return districts.map((district) => ({
@@ -77,6 +80,44 @@ const districtQuotes: Record<string, { title: string; quote: string }> = {
     quote: "资料很多，但核心只有几行。慢慢来，我不赶。",
   },
 };
+
+const towerTimelineEvents = [
+  {
+    year: 2014,
+    title: "0-6 岁亲子家庭教育探索",
+    description:
+      "参与 0-6 岁亲子家庭教育课程设计与服务，积累早期教育场景下的课程研发与服务经验。",
+    highlight: "起点",
+  },
+  {
+    year: 2019,
+    title: "从家庭教育到世界课堂",
+    description:
+      "将 3-8 岁家庭教育延伸至世界课堂，重点参与澳洲游学产品、云南西双版纳游学产品、大理生态营地课程等内容。",
+    highlight: "延伸",
+  },
+  {
+    year: 2023,
+    title: "乡村少年社会实践公益项目",
+    description:
+      "操盘 8-15 岁乡村少年独立社会实践公益项目，覆盖云南、贵州、湖南等地，搭建乡村公益与社会实践框架。",
+    highlight: "扎根",
+  },
+  {
+    year: 2025,
+    title: "海外研学拓展项目",
+    description:
+      "拓展海外研学项目版图，操盘英国夏校、新加坡未来城市研学、芬兰极光探索营等国际项目。",
+    highlight: "出海",
+  },
+  {
+    year: 2026,
+    title: "开启个人 OPC 新纪元",
+    description:
+      "从服务型业务转向数字资产创作，用 AI 探索一切可能，把多年研学经验沉淀为可复制的数字产品。",
+    highlight: "新纪元",
+  },
+];
 
 export default async function DistrictPage({ params }: DistrictPageProps) {
   const { slug } = await params;
@@ -170,7 +211,9 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
 
               {/* Exhibition wall */}
               <div className="flex-1">
-                {projects.length > 0 ? (
+                {district.slug === "archive" ? (
+                  <ArchiveContent />
+                ) : projects.length > 0 ? (
                   <ExhibitionWall projects={projects} />
                 ) : (
                   <div className="rounded-3xl border border-dashed border-white/10 p-16 text-center">
@@ -186,6 +229,25 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
             </div>
           </div>
         </section>
+
+        {/* Tower Timeline */}
+        {district.slug === "tower" && (
+          <section className="border-t border-white/5 py-24">
+            <div className="mx-auto max-w-7xl px-6">
+              <AnimatedSection className="mb-16 text-center">
+                <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
+                  Timeline
+                </p>
+                <h2 className="mt-3 text-4xl font-bold">成长时间轴</h2>
+                <p className="mx-auto mt-4 max-w-2xl text-lg text-[#8b8d9a]">
+                  从亲子家庭教育到海外研学，再到 AI 数字产品探索，每一层都是一座里程碑。
+                </p>
+              </AnimatedSection>
+
+              <Timeline events={towerTimelineEvents} />
+            </div>
+          </section>
+        )}
       </main>
 
       <Footer />

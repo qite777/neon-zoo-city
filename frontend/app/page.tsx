@@ -1,17 +1,16 @@
-import { districts, projects, cityStats } from "@/lib/data";
+import { districts, cityStats } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { DistrictCard } from "@/components/DistrictCard";
 import { CityMap } from "@/components/CityMap";
-import { ProjectCard } from "@/components/ProjectCard";
 import { ExplorerAvatar } from "@/components/ExplorerAvatar";
 import { AnimatedSection, AnimatedCard } from "@/components/AnimatedSection";
 import { HeroVideo } from "@/components/HeroVideo";
 import { CityLifeVideo } from "@/components/CityLifeVideo";
+import { CharacterIntro } from "@/components/CharacterIntro";
+import { AboutAvatarVideo } from "@/components/AboutAvatarVideo";
 
 export default function Home() {
-  const featuredProjects = projects.slice(0, 4);
-
   return (
     <div className="flex min-h-screen flex-col">
       <Navbar />
@@ -53,10 +52,10 @@ export default function Home() {
                   <span className="transition-transform group-hover:translate-x-1">→</span>
                 </a>
                 <a
-                  href="/district/arena"
+                  href="#about-explorer"
                   className="flex h-14 items-center gap-2 rounded-full border border-white/20 px-8 text-lg font-medium transition-colors hover:bg-white/5"
                 >
-                  查看研学日志
+                  认识建造者
                 </a>
               </div>
             </div>
@@ -152,33 +151,116 @@ export default function Home() {
           </div>
         </section>
 
-        {/* Featured Projects */}
+        {/* About Explorer — moved from /about */}
+        <section id="about-explorer" className="border-t border-white/5 py-24">
+          <div className="mx-auto max-w-7xl px-6">
+            <div className="flex flex-col items-center gap-10 text-center md:flex-row md:text-left">
+              <AnimatedSection className="shrink-0">
+                <div
+                  className="relative h-64 w-48 overflow-hidden rounded-3xl border-2 md:h-80 md:w-60"
+                  style={{
+                    borderColor: "#D946EF60",
+                    boxShadow: "0 0 50px #D946EF30",
+                  }}
+                >
+                  <AboutAvatarVideo />
+                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b12]/60 to-transparent" />
+                  <div className="absolute bottom-4 left-4">
+                    <p className="text-xs text-[#8b8d9a]">Digital Creator</p>
+                    <p className="text-lg font-bold">Lilia</p>
+                  </div>
+                </div>
+              </AnimatedSection>
+
+              <div className="flex-1">
+                <AnimatedSection delay={100}>
+                  <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
+                    About the Explorer
+                  </p>
+                  <h2 className="mt-3 text-4xl font-bold md:text-5xl">
+                    城市探索者 ·{" "}
+                    <span className="text-gradient bg-gradient-to-r from-[#D946EF] to-[#00F0FF]">
+                      Lilia
+                    </span>
+                  </h2>
+                  <p className="mt-6 text-lg leading-relaxed text-[#8b8d9a]">
+                    一名在国际教育、AIGC 创作与城市探索之间游走的记录者。
+                    我相信每个项目都是一座待挖掘的城市，每个经历都是值得归档的街区。
+                  </p>
+                  <p className="mt-4 text-lg leading-relaxed text-[#8b8d9a]">
+                    Neon Zoo City 是我为自己建造的数字档案馆——五只动物，五座街区，
+                    记录着我的研学足迹、创作实验、商业观察与成长轨迹。
+                  </p>
+
+                  <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
+                    {["研学设计", "AIGC 创作", "项目管理", "国际交流", "乡村公益"].map(
+                      (skill) => (
+                        <span
+                          key={skill}
+                          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[#8b8d9a]"
+                        >
+                          {skill}
+                        </span>
+                      )
+                    )}
+                  </div>
+                </AnimatedSection>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        {/* Characters Section — moved from /about */}
         <section className="border-t border-white/5 py-24">
           <div className="mx-auto max-w-7xl px-6">
-            <AnimatedSection className="mb-12 flex items-end justify-between">
-              <div>
-                <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
-                  Featured
-                </p>
-                <h2 className="mt-3 text-3xl font-bold md:text-4xl">
-                  Sprint 的精选足迹
-                </h2>
-              </div>
-              <a
-                href="/district/arena"
-                className="hidden rounded-full border border-white/10 px-5 py-2 text-sm transition-colors hover:bg-white/5 md:block"
-              >
-                查看全部 →
-              </a>
+            <AnimatedSection className="mb-16 text-center">
+              <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
+                Residents
+              </p>
+              <h2 className="mt-3 text-4xl font-bold">五位城市居民</h2>
+              <p className="mx-auto mt-4 max-w-2xl text-lg text-[#8b8d9a]">
+                他们不只是头像，而是这座城市不同面向的化身。
+              </p>
             </AnimatedSection>
 
-            <div className="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-              {featuredProjects.map((project, index) => (
-                <AnimatedCard key={project.id} delay={index * 100}>
-                  <ProjectCard project={project} />
-                </AnimatedCard>
+            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+              {districts.map((district, index) => (
+                <CharacterIntro
+                  key={district.slug}
+                  district={district}
+                  index={index}
+                />
               ))}
             </div>
+          </div>
+        </section>
+
+        {/* Contact CTA — moved from /about */}
+        <section className="border-t border-white/5 py-24">
+          <div className="mx-auto max-w-4xl px-6">
+            <AnimatedSection className="rounded-[2.5rem] border border-white/10 bg-gradient-to-br from-[#D946EF]/10 via-transparent to-[#00F0FF]/10 p-10 text-center md:p-16"
+            >
+              <h2 className="text-3xl font-bold md:text-4xl">
+                想要一起探索这座城市？
+              </h2>
+              <p className="mx-auto mt-4 max-w-xl text-lg text-[#8b8d9a]">
+                如果你有研学合作、AIGC 项目或创意想法，欢迎来找我聊聊。
+              </p>
+              <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
+                <a
+                  href="mailto:hello@example.com"
+                  className="flex h-14 items-center gap-2 rounded-full bg-white px-8 text-lg font-bold text-black transition-transform hover:scale-105"
+                >
+                  发送邮件
+                </a>
+                <a
+                  href="#city-map"
+                  className="flex h-14 items-center gap-2 rounded-full border border-white/20 px-8 text-lg font-medium transition-colors hover:bg-white/5"
+                >
+                  进入城市
+                </a>
+              </div>
+            </AnimatedSection>
           </div>
         </section>
       </main>

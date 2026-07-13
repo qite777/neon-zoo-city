@@ -86,26 +86,6 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "douyin": ""
     },
     {
-      "id": "huitong-aigc-eco-camp",
-      "title": "惠通村 · AIGC 三生融合科创营",
-      "slug": "huitong-aigc-eco-camp",
-      "districtSlug": "theater",
-      "location": "云南 / 惠通村",
-      "summary": "乡村少年支教与 AIGC 结合的三生融合未来智慧农业科创营。",
-      "description": "在云南惠通村落地 AIGC 三生融合科创营，带领乡村少年用 AI 工具探索生态农业、短片创作与未来乡村设计。产出调研报告、短片与科创营手册。",
-      "tags": [
-        "AIGC",
-        "乡村支教",
-        "生态农业",
-        "短片",
-        "课程设计"
-      ],
-      "year": 2025,
-      "assets": [],
-      "xiaohongshu": "",
-      "douyin": ""
-    },
-    {
       "id": "chiangmai-artist-market",
       "title": "清迈 · 艺术家市集考察",
       "slug": "chiangmai-artist-market",
@@ -126,6 +106,6 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "douyin": ""
     }
   ],
-  "generatedAt": "2026-07-09T12:09:31.157327",
+  "generatedAt": "2026-07-13T22:55:39.603796",
   "source": "local-csv"
 };

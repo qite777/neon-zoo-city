@@ -41,7 +41,7 @@ export function ExplorerAvatar({
   return (
     <div
       ref={ref}
-      className="relative hidden h-48 w-36 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl md:block md:h-64 md:w-48"
+      className="relative hidden h-64 w-48 overflow-hidden rounded-2xl border-2 border-white/20 shadow-2xl md:block md:h-96 md:w-72"
     >
       {isVideo ? (
         <video
@@ -64,16 +64,16 @@ export function ExplorerAvatar({
           alt={alt}
           loading="lazy"
           decoding="async"
-          width={192}
-          height={256}
+          width={288}
+          height={384}
           className="h-full w-full object-cover object-top"
           onError={() => setHasError(true)}
         />
       )}
       <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b12]/60 to-transparent" />
-      <div className="absolute bottom-3 left-3 right-3">
-        <p className="text-xs text-[#8b8d9a]">{title}</p>
-        <p className="text-sm font-bold text-white">{name}</p>
+      <div className="absolute bottom-3 left-3 right-3 md:bottom-4 md:left-4">
+        <p className="text-xs text-white/70 md:text-sm">{title}</p>
+        <p className="text-sm font-bold text-white md:text-lg">{name}</p>
       </div>
     </div>
   );

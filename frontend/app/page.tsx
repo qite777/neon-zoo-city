@@ -1,4 +1,4 @@
-import { districts, cityStats } from "@/lib/data";
+import { districts } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { DistrictCard } from "@/components/DistrictCard";
@@ -88,32 +88,6 @@ export default function Home() {
                 d="M19 14l-7 7m0 0l-7-7m7 7V3"
               />
             </svg>
-          </div>
-        </section>
-
-        {/* Stats Bar */}
-        <section className="border-b border-white/5 bg-[#0a0b12] py-12">
-          <div className="mx-auto max-w-7xl px-6">
-            <AnimatedSection>
-              <div className="grid grid-cols-2 gap-4 rounded-3xl border border-white/10 bg-white/[0.02] p-6 backdrop-blur-sm md:grid-cols-4">
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-[#FF9500]">{cityStats.totalProjects}</p>
-                  <p className="mt-1 text-sm text-[#8b8d9a]">项目</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-[#00F0FF]">{cityStats.totalCountries}</p>
-                  <p className="mt-1 text-sm text-[#8b8d9a]">国家/地区</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-[#D946EF]">5</p>
-                  <p className="mt-1 text-sm text-[#8b8d9a]">街区</p>
-                </div>
-                <div className="text-center">
-                  <p className="text-3xl font-bold text-[#39FF14]">{cityStats.yearSpan}</p>
-                  <p className="mt-1 text-sm text-[#8b8d9a]">时间跨度</p>
-                </div>
-              </div>
-            </AnimatedSection>
           </div>
         </section>
 

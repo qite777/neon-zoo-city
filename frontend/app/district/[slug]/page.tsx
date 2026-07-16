@@ -10,6 +10,7 @@ import { ExhibitionWall } from "@/components/ExhibitionWall";
 import { Timeline } from "@/components/Timeline";
 import { AnimatedSection } from "@/components/AnimatedSection";
 import { ArchiveContent } from "@/components/ArchiveContent";
+import { TravelMap } from "@/components/TravelMap";
 
 export async function generateStaticParams() {
   return districts.map((district) => ({
@@ -195,6 +196,13 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                 ← 返回城市
               </Link>
             </div>
+
+            {/* 动物旅行者世界地图 — 远行竞技场专属，占满整行 */}
+            {district.slug === "arena" && (
+              <div className="mb-12">
+                <TravelMap />
+              </div>
+            )}
 
             <div className="flex flex-col gap-10 lg:flex-row lg:items-start">
               {/* Character guide */}

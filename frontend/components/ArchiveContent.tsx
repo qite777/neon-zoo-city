@@ -8,7 +8,7 @@ const skills = [
 ];
 
 const contacts = [
-  { label: "邮箱", value: "hello@example.com", href: "mailto:hello@example.com" },
+  { label: "邮箱", value: "1510760873@qq.com", href: "mailto:1510760873@qq.com" },
   { label: "城市主页", value: "neon-zoo-city.vercel.app", href: "/" },
 ];
 

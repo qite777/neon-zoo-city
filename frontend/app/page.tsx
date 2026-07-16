@@ -222,7 +222,7 @@ export default function Home() {
               </p>
               <div className="mt-8 flex flex-col items-center justify-center gap-4 sm:flex-row">
                 <a
-                  href="mailto:hello@example.com"
+                  href="mailto:1510760873@qq.com"
                   className="flex h-14 items-center gap-2 rounded-full bg-white px-8 text-lg font-bold text-black transition-transform hover:scale-105"
                 >
                   发送邮件

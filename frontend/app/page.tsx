@@ -3,7 +3,6 @@ import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
 import { DistrictCard } from "@/components/DistrictCard";
 import { CityMap } from "@/components/CityMap";
-import { ExplorerAvatar } from "@/components/ExplorerAvatar";
 import { AnimatedSection, AnimatedCard } from "@/components/AnimatedSection";
 import { HeroVideo } from "@/components/HeroVideo";
 import { CityLifeVideo } from "@/components/CityLifeVideo";
@@ -20,9 +19,9 @@ export default function Home() {
           {/* Background video */}
           <HeroVideo src="/videos/hero-main.mp4" poster="/hero/team-banner.jpg" />
 
-          {/* Dark overlays */}
-          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0b12]/85 via-[#0a0b12]/50 to-[#0a0b12]" />
-          <div className="absolute inset-0 city-grid opacity-20" />
+          {/* Dark overlays — lightened so the hero video shows through */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#0a0b12]/70 via-[#0a0b12]/35 to-[#0a0b12]/90" />
+          <div className="absolute inset-0 city-grid opacity-10" />
 
           {/* Top content */}
           <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pt-16 md:pt-24">
@@ -60,20 +59,7 @@ export default function Home() {
             </div>
           </div>
 
-          {/* Explorer avatar */}
-          <div className="relative z-10 mx-auto w-full max-w-7xl px-6 pb-28 md:pb-32"
-          >
-            <div className="flex items-end justify-end"
-            >
-              <ExplorerAvatar
-                src="/videos/explorer-lilia-idle-v2.mp4"
-                alt="City Explorer"
-                title="City Explorer"
-                name="Lilia"
-              />
-            </div>
-          </div>
-
+          {/* Scroll hint */}
           <div className="absolute bottom-8 left-1/2 -translate-x-1/2 animate-bounce">
             <svg
               className="h-6 w-6 text-[#8b8d9a]"

@@ -133,7 +133,19 @@ export function CityMap({ districts }: CityMapProps) {
           </p>
         </div>
 
-        <div className="relative mx-auto aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-[2.5rem] border border-white/10 bg-[#0d0e15] city-grid">
+        <div className="relative mx-auto aspect-[16/10] w-full max-w-5xl overflow-hidden rounded-[2.5rem] border border-white/10">
+          {/* Background video */}
+          <video
+            src="/videos/explorer-lilia-idle-v2.mp4"
+            autoPlay
+            muted
+            loop
+            playsInline
+            className="absolute inset-0 h-full w-full object-cover"
+          />
+          {/* Light overlay — keeps towers readable while letting the video shine */}
+          <div className="absolute inset-0 bg-[#0a0b12]/30" />
+
           {/* Ground glow */}
           <div
             className="absolute bottom-0 left-1/2 h-1/2 w-3/4 -translate-x-1/2 rounded-full opacity-20 blur-3xl"

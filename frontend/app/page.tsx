@@ -7,7 +7,6 @@ import { ExplorerAvatar } from "@/components/ExplorerAvatar";
 import { AnimatedSection, AnimatedCard } from "@/components/AnimatedSection";
 import { HeroVideo } from "@/components/HeroVideo";
 import { CityLifeVideo } from "@/components/CityLifeVideo";
-import { CharacterIntro } from "@/components/CharacterIntro";
 import { AboutAvatarVideo } from "@/components/AboutAvatarVideo";
 
 export default function Home() {
@@ -206,31 +205,6 @@ export default function Home() {
                   </div>
                 </AnimatedSection>
               </div>
-            </div>
-          </div>
-        </section>
-
-        {/* Characters Section — moved from /about */}
-        <section className="border-t border-white/5 py-24">
-          <div className="mx-auto max-w-7xl px-6">
-            <AnimatedSection className="mb-16 text-center">
-              <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
-                Residents
-              </p>
-              <h2 className="mt-3 text-4xl font-bold">五位城市居民</h2>
-              <p className="mx-auto mt-4 max-w-2xl text-lg text-[#8b8d9a]">
-                他们不只是头像，而是这座城市不同面向的化身。
-              </p>
-            </AnimatedSection>
-
-            <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
-              {districts.map((district, index) => (
-                <CharacterIntro
-                  key={district.slug}
-                  district={district}
-                  index={index}
-                />
-              ))}
             </div>
           </div>
         </section>

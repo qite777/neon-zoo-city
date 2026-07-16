@@ -18,18 +18,24 @@ export function Footer() {
             </div>
           </div>
 
-          <div className="flex gap-6 text-sm text-[#8b8d9a]">
+          <div className="flex flex-wrap justify-center gap-x-6 gap-y-2 text-sm text-[#8b8d9a]">
             <Link href="/" className="transition-colors hover:text-white">
               首页
             </Link>
             <Link href="/district/arena" className="transition-colors hover:text-white">
-              研学日志
+              远行竞技场
             </Link>
             <Link href="/district/theater" className="transition-colors hover:text-white">
-              作品
+              光影剧场
             </Link>
-            <Link href="/about" className="transition-colors hover:text-white">
-              关于
+            <Link href="/district/gallery" className="transition-colors hover:text-white">
+              高级画廊
+            </Link>
+            <Link href="/district/tower" className="transition-colors hover:text-white">
+              记忆高塔
+            </Link>
+            <Link href="/district/archive" className="transition-colors hover:text-white">
+              慢闪档案馆
             </Link>
           </div>
         </div>

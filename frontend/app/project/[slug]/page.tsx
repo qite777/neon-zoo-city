@@ -144,13 +144,6 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
                   {project.description}
                 </p>
 
-                <div className="mt-10 rounded-2xl border border-dashed border-white/10 bg-white/[0.02] p-12 text-center">
-                  <span className="text-5xl">{district.icon}</span>
-                  <p className="mt-4 text-[#8b8d9a]">
-                    项目素材正在从桌面档案中整理，后续将替换为真实图片与文档。
-                  </p>
-                </div>
-
                 {(project.xiaohongshu || project.douyin) && (
                   <div className="mt-10">
                     <h3 className="mb-4 text-lg font-bold text-white">相关作品</h3>

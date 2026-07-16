@@ -8,7 +8,8 @@ const navLinks = [
   { href: "/district/theater", label: "光影剧场" },
   { href: "/district/gallery", label: "高级画廊" },
   { href: "/district/tower", label: "记忆高塔" },
-  { href: "/about", label: "关于" },
+  { href: "/district/archive", label: "慢闪档案馆" },
+  { href: "/#about-explorer", label: "关于" },
 ];
 
 export function Navbar() {

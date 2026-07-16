@@ -215,6 +215,40 @@ export default async function DistrictPage({ params }: DistrictPageProps) {
                   <ArchiveContent />
                 ) : projects.length > 0 ? (
                   <ExhibitionWall projects={projects} />
+                ) : district.slug === "theater" ? (
+                  /* Theater curtain empty state */
+                  <div className="relative overflow-hidden rounded-3xl border border-white/10 bg-[#0d0e15] p-16 text-center">
+                    {/* Curtain glow */}
+                    <div
+                      className="pointer-events-none absolute left-0 top-0 h-full w-1/2 opacity-20 blur-2xl"
+                      style={{
+                        background:
+                          "linear-gradient(90deg, #FF3CAC, transparent)",
+                      }}
+                    />
+                    <div
+                      className="pointer-events-none absolute right-0 top-0 h-full w-1/2 opacity-20 blur-2xl"
+                      style={{
+                        background:
+                          "linear-gradient(270deg, #FF3CAC, transparent)",
+                      }}
+                    />
+                    {/* Top stage light */}
+                    <div className="mx-auto mb-8 h-1 w-32 rounded-full bg-gradient-to-r from-transparent via-[#FF3CAC] to-transparent" />
+
+                    <span className="text-5xl" aria-hidden="true">🎬</span>
+                    <h3 className="mt-6 text-2xl font-bold text-white">
+                      剧场布展中
+                    </h3>
+                    <p className="mx-auto mt-4 max-w-md leading-relaxed text-[#8b8d9a]">
+                      Vex 正在剪辑下一批 AIGC 短片与视觉实验。
+                      幕布拉开之前，这里保持黑暗。
+                    </p>
+                    <div className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#FF3CAC]/30 bg-[#FF3CAC]/10 px-5 py-2 text-sm text-[#FF3CAC]">
+                      <span className="h-2 w-2 animate-pulse rounded-full bg-[#FF3CAC]" />
+                      即将上映
+                    </div>
+                  </div>
                 ) : (
                   <div className="rounded-3xl border border-dashed border-white/10 p-16 text-center">
                     <p className="text-lg text-[#8b8d9a]">

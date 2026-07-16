@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   metadataBase: new URL(
-    process.env.NEXT_PUBLIC_SITE_URL || "https://example.com"
+    process.env.NEXT_PUBLIC_SITE_URL || "https://neon-zoo-city.vercel.app"
   ),
   title: {
     default: "Neon Zoo City | 研学×AI数字产品创作者",

@@ -1,110 +1,16 @@
 import type { Metadata } from "next";
-import { Navbar } from "@/components/Navbar";
-import { Footer } from "@/components/Footer";
-import { AnimatedSection } from "@/components/AnimatedSection";
-import { AboutAvatarVideo } from "@/components/AboutAvatarVideo";
+import { redirect } from "next/navigation";
 
 export const metadata: Metadata = {
   title: "关于",
   description:
     "Lilia — 城市探索者，在国际教育、AIGC 与城市探索之间记录成长轨迹。",
-  openGraph: {
-    title: "关于 | Neon Zoo City",
-    description:
-      "了解 Neon Zoo City 的建造者：一位城市探索者的数字档案。",
-  },
-  twitter: {
-    title: "关于 | Neon Zoo City",
-    description:
-      "了解 Neon Zoo City 的建造者：一位城市探索者的数字档案。",
-  },
   alternates: {
     canonical: "/about",
   },
 };
 
+// About 内容已融合到首页的「城市探索者」板块，这里直接跳转到首页对应锚点
 export default function AboutPage() {
-  return (
-    <div className="flex min-h-screen flex-col">
-      <Navbar />
-
-      <main className="flex-1 pt-24">
-        {/* Hero Section */}
-        <section className="relative overflow-hidden py-20">
-          <div className="absolute inset-0 city-grid opacity-20" />
-          <div
-            className="absolute right-0 top-0 h-96 w-96 rounded-full opacity-10 blur-[120px]"
-            style={{
-              background: "radial-gradient(circle, #D946EF, transparent 70%)",
-            }}
-          />
-          <div
-            className="absolute bottom-0 left-0 h-80 w-80 rounded-full opacity-10 blur-[100px]"
-            style={{
-              background: "radial-gradient(circle, #00F0FF, transparent 70%)",
-            }}
-          />
-
-          <div className="relative mx-auto max-w-7xl px-6">
-            <div className="flex flex-col items-center gap-10 text-center md:flex-row md:text-left">
-              {/* Avatar / Video */}
-              <AnimatedSection className="shrink-0">
-                <div
-                  className="relative h-64 w-48 overflow-hidden rounded-3xl border-2 md:h-80 md:w-60"
-                  style={{
-                    borderColor: "#D946EF60",
-                    boxShadow: "0 0 50px #D946EF30",
-                  }}
-                >
-                  <AboutAvatarVideo />
-                  <div className="absolute inset-0 bg-gradient-to-t from-[#0a0b12]/60 to-transparent" />
-                  <div className="absolute bottom-4 left-4">
-                    <p className="text-xs text-[#8b8d9a]">Digital Creator</p>
-                    <p className="text-lg font-bold">Lilia</p>
-                  </div>
-                </div>
-              </AnimatedSection>
-
-              <div className="flex-1">
-                <AnimatedSection delay={100}>
-                  <p className="text-sm font-medium uppercase tracking-widest text-[#8b8d9a]">
-                    About the Explorer
-                  </p>
-                  <h1 className="mt-3 text-4xl font-bold md:text-6xl">
-                    城市探索者 ·{" "}
-                    <span className="text-gradient bg-gradient-to-r from-[#D946EF] to-[#00F0FF]">
-                      Lilia
-                    </span>
-                  </h1>
-                  <p className="mt-6 text-lg leading-relaxed text-[#8b8d9a]">
-                    一名在国际教育、AIGC 创作与城市探索之间游走的记录者。
-                    我相信每个项目都是一座待挖掘的城市，每个经历都是值得归档的街区。
-                  </p>
-                  <p className="mt-4 text-lg leading-relaxed text-[#8b8d9a]">
-                    Neon Zoo City 是我为自己建造的数字档案馆——五只动物，五座街区，
-                    记录着我的研学足迹、创作实验、商业观察与成长轨迹。
-                  </p>
-
-                  <div className="mt-8 flex flex-wrap justify-center gap-4 md:justify-start">
-                    {["研学设计", "AIGC 创作", "项目管理", "国际交流", "乡村公益"].map(
-                      (skill) => (
-                        <span
-                          key={skill}
-                          className="rounded-full border border-white/10 bg-white/5 px-4 py-2 text-sm text-[#8b8d9a]"
-                        >
-                          {skill}
-                        </span>
-                      )
-                    )}
-                  </div>
-                </AnimatedSection>
-              </div>
-            </div>
-          </div>
-        </section>
-      </main>
-
-      <Footer />
-    </div>
-  );
+  redirect("/#about-explorer");
 }

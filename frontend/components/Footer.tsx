@@ -37,6 +37,9 @@ export function Footer() {
             <Link href="/district/archive" className="transition-colors hover:text-white">
               慢闪档案馆
             </Link>
+            <Link href="/opc-quiz/" className="transition-colors hover:text-white">
+              人格测试
+            </Link>
           </div>
         </div>
 

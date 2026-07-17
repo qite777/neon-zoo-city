@@ -1,3 +1,4 @@
+import Link from "next/link";
 import { districts } from "@/lib/data";
 import { Navbar } from "@/components/Navbar";
 import { Footer } from "@/components/Footer";
@@ -55,6 +56,17 @@ export default function Home() {
                 >
                   认识建造者
                 </a>
+              </div>
+
+              <div className="mt-4 flex items-center gap-2 text-sm text-[#8b8d9a]">
+                <span className="h-2 w-2 animate-pulse rounded-full bg-[#FF3CAC]" />
+                新上线：
+                <Link
+                  href="/opc-quiz/"
+                  className="text-[#FF3CAC] transition-colors hover:text-[#FF3CAC]/80"
+                >
+                  测测你的 OPC 人格
+                </Link>
               </div>
             </div>
           </div>

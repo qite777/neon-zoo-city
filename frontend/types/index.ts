@@ -27,6 +27,8 @@ export interface Project {
   endDate?: string;
   year: number;
   coverImage?: string;
+  video?: string;
+  cover?: string;
   assets: string[];
   xiaohongshu?: string;
   douyin?: string;

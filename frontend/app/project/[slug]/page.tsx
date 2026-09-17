@@ -125,6 +125,37 @@ export default async function ProjectPage({ params }: ProjectPageProps) {
           </div>
         </section>
 
+        {/* Film Player */}
+        {project.video && (
+          <section className="border-t border-white/5 py-16">
+            <div className="mx-auto max-w-5xl px-6">
+              <div
+                className="overflow-hidden rounded-3xl border p-2"
+                style={{
+                  borderColor: `${district.color}30`,
+                  boxShadow: `0 0 60px ${district.color}15`,
+                }}
+              >
+                {/* eslint-disable-next-line jsx-a11y/media-has-caption */}
+                <video
+                  src={project.video}
+                  poster={project.cover}
+                  controls
+                  playsInline
+                  preload="metadata"
+                  className="aspect-video w-full rounded-2xl bg-black"
+                />
+              </div>
+              <p
+                className="mt-4 text-center text-sm"
+                style={{ color: `${district.color}99` }}
+              >
+                {district.animalName} 的放映厅 · 点击播放这部 AIGC 短片
+              </p>
+            </div>
+          </section>
+        )}
+
         {/* Project Content */}
         <section className="border-t border-white/5 py-20">
           <div className="mx-auto max-w-5xl px-6">

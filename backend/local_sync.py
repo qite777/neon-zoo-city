@@ -66,6 +66,8 @@ def row_to_project(row: dict) -> dict:
         "assets": [],
         "xiaohongshu": row.get("Xiaohongshu", "").strip(),
         "douyin": row.get("Douyin", "").strip(),
+        "video": row.get("Video", "").strip(),
+        "cover": row.get("Cover", "").strip(),
     }
 
 

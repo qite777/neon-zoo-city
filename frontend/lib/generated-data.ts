@@ -23,7 +23,9 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "year": 2026,
       "assets": [],
       "xiaohongshu": "",
-      "douyin": ""
+      "douyin": "",
+      "video": "",
+      "cover": ""
     },
     {
       "id": "uk-harry-potter-academy",
@@ -43,7 +45,9 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "year": 2025,
       "assets": [],
       "xiaohongshu": "",
-      "douyin": ""
+      "douyin": "",
+      "video": "",
+      "cover": ""
     },
     {
       "id": "finland-sisu-aurora",
@@ -63,7 +67,9 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "year": 2026,
       "assets": [],
       "xiaohongshu": "",
-      "douyin": ""
+      "douyin": "",
+      "video": "",
+      "cover": ""
     },
     {
       "id": "hongkong-shenzhen-growth",
@@ -83,7 +89,9 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "year": 2026,
       "assets": [],
       "xiaohongshu": "",
-      "douyin": ""
+      "douyin": "",
+      "video": "",
+      "cover": ""
     },
     {
       "id": "chiangmai-artist-market",
@@ -103,9 +111,77 @@ export const generatedProjects: { projects: Project[]; generatedAt: string; sour
       "year": 2025,
       "assets": [],
       "xiaohongshu": "",
-      "douyin": ""
+      "douyin": "",
+      "video": "",
+      "cover": ""
+    },
+    {
+      "id": "odyssey-dream",
+      "title": "梦的奥德赛｜女性层叠史诗",
+      "slug": "odyssey-dream",
+      "districtSlug": "theater",
+      "location": "AIGC 虚拟制片",
+      "summary": "从王后佩涅洛佩视角重构《奥德赛》：二十年织机前的等待，是一场向内探索的女性远征。",
+      "description": "诺兰《奥德赛》上映之际，从王后佩涅洛佩的视角重新讲述这场经典远征：求婚者喧嚷的宫殿里，她以织寿衣为借口推拒婚事，每到夜晚拆去白天织好的布。月光落在织机上，她伏在织线里入睡——梦境顺着织线飘向海洋，走过奥德修斯走过的风浪，也看见那些被称为「妖女」的女性各自守着的孤独。清晨钟声唤醒她，她拆去最后一段布，织出的不是寿衣，而是一张画满星辰海图的布。奥德修斯回不回来，她已经完成了自己的航行。全片 24 个镜头，从分镜提示词、角色锚定图到配乐歌词，全部由 AI 生成，是一首献给所有「在原地等待却从未停止编织自己人生」的女性的影像诗。",
+      "tags": [
+        "AIGC短片",
+        "女性叙事",
+        "奥德赛",
+        "视觉实验",
+        "AI音乐"
+      ],
+      "year": 2026,
+      "assets": [],
+      "xiaohongshu": "",
+      "douyin": "",
+      "video": "/videos/film-odyssey-dream.mp4",
+      "cover": "/films/odyssey-dream.jpg"
+    },
+    {
+      "id": "xun-find-your-city",
+      "title": "寻 · 找到你的城",
+      "slug": "xun-find-your-city",
+      "districtSlug": "theater",
+      "location": "北京中轴线",
+      "summary": "以北京中轴线神兽传说为线索的 AR 游戏项目 AIGC 概念短片：寻找并唤醒属于自己的城。",
+      "description": "《寻·找到你的城》AR 游戏项目的 AIGC 概念短片。赛博斗篷下的主角穿行于北京中轴线，永定门下激活 AR 封印，狻猊从沉睡中睁眼，天坛龙凤完全觉醒，九龙壁化作评分迷宫，铸钟娘娘在钟鼓楼敲满 107 响——每一座建筑都是一头等待被唤醒的神兽，每一条胡同都藏着属于这座城市的力量。从 S01-S27 完整分镜脚本，到角色三视图与场景概念图，全部由 AI 生成，是一次「用 AIGC 为城市造梦」的完整实践。",
+      "tags": [
+        "AIGC短片",
+        "AR游戏",
+        "北京中轴线",
+        "赛博朋克",
+        "城市文化"
+      ],
+      "year": 2026,
+      "assets": [],
+      "xiaohongshu": "",
+      "douyin": "",
+      "video": "/videos/film-xun-find-your-city.mp4",
+      "cover": "/films/xun-find-your-city.jpg"
+    },
+    {
+      "id": "fearless-summer-camp",
+      "title": "无畏觉醒夏令营",
+      "slug": "fearless-summer-camp",
+      "districtSlug": "theater",
+      "location": "海岛营地",
+      "summary": "为「无畏觉醒夏令营」打造的 AIGC 品牌视觉短片：落日海岛、营地灯火与少年冒险气息。",
+      "description": "为无畏觉醒夏令营打造的 AIGC 视觉短片。暮色四合的海岛上，椰林挂满灯串，沙滩立着射箭靶与分组木牌，远处营火与舞台灯光渐次亮起——用 AI 影像为营地品牌构建出一个充满冒险气息的沉浸式世界，让家长和孩子在 30 秒内闻到海风的味道。",
+      "tags": [
+        "AIGC短片",
+        "夏令营",
+        "品牌视觉",
+        "海岛",
+        "营地教育"
+      ],
+      "year": 2026,
+      "assets": [],
+      "xiaohongshu": "",
+      "douyin": "",
+      "video": "/videos/film-fearless-summer.mp4",
+      "cover": "/films/fearless-summer-camp.jpg"
     }
   ],
-  "generatedAt": "2026-07-13T22:55:39.603796",
+  "generatedAt": "2026-09-15T15:41:39.669446",
   "source": "local-csv"
 };

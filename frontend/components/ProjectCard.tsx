@@ -35,6 +35,15 @@ export function ProjectCard({ project }: ProjectCardProps) {
         >
           {district?.icon || "📁"}
         </div>
+        {project.cover && (
+          // eslint-disable-next-line @next/next/no-img-element
+          <img
+            src={project.cover}
+            alt={project.title}
+            loading="lazy"
+            className="absolute inset-0 h-full w-full object-cover transition-transform duration-500 group-hover:scale-105"
+          />
+        )}
         <div
           className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80 transition-opacity duration-300 group-hover:opacity-60"
         />

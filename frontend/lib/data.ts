@@ -89,6 +89,8 @@ export const projects: Project[] = generatedProjects.projects.map((p) => ({
   assets: [],
   xiaohongshu: p.xiaohongshu,
   douyin: p.douyin,
+  video: p.video,
+  cover: p.cover,
 }));
 
 export function getDistrictBySlug(slug: string): District | undefined {
